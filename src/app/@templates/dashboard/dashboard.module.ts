@@ -2,24 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { DashboardComponent } from './dashboard.component';
-import { ReservationsComponent } from '../../@pages/reservations/reservations.component';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { ReservationsModule } from '../../@pages/reservations/reservations.module';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
-    ReservationsComponent
+    DashboardComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    ReservationsModule,
+    MatDialogModule
   ],
-  exports: [RouterModule],
+  exports: [
+    RouterModule,
+    MatDialogModule
+  ],
   providers: []
 })
 export class DashboardModule {}

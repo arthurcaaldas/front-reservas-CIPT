@@ -2,7 +2,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ReservationsComponent } from '../../@pages/reservations/reservations.component';
+import { ReservationsListComponent } from '../../@pages/reservations/list/list.component';
+import { ReservationsFormComponent } from '../../@pages/reservations/form/form.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,11 @@ const routes: Routes = [
   },
   {
     path: 'reservas',
-    component: ReservationsComponent
+    component: ReservationsListComponent,
+  },
+  {
+    path: 'reservas/:id',
+    component: ReservationsFormComponent,
   }
 ];
 

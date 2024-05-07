@@ -1,0 +1,56 @@
+<section class="">
+  <div class="grid justify-center">
+    <div class="div col-md-12">
+
+      <header class="mb-3 ">
+        <div class="flex align-items-center justify-space-between">
+          <div class="flex">
+            <div class="mr-05">
+              <img src="/assets/images/icons/date.png" alt="">
+            </div>
+            <div>
+              <h1 class="mb-05">Reserva de salas</h1>
+              <p>Veja a disponibilidade para agendamento de salas no CIPT</p>
+            </div>
+          </div>
+          <div class="box flex align-items-center">
+            <img src="/assets/images/icons/date+.png" alt="">
+            <button (click)="openDialog()" class="button -secondary -block">Reservar sala</button>
+          </div>
+        </div>
+      </header>
+      
+      <table>
+        <tbody>
+          <tr>
+            <td>Número da sala</td>
+            <td>Responsável pela sala</td>
+            <td>Documento responsável</td>
+            <td>Quantidade de Pessoas</td>
+            <td>Horário da reserva</td>
+            <td>Horário da saída</td>
+            <td>Ações</td>
+          </tr>
+          <tr *ngFor="let reservation of reservations">
+            <td>{{ reservation.roomId.name }}</td>
+            <td>{{ reservation.fullName }}</td>
+            <td>{{ reservation.document }}</td>
+            <td>{{ reservation.amountOfPeople }}</td>
+            <td>{{ reservation.reservationStartDate | date : 'dd/MM/yyyy HH:mm' }}</td>
+            <td>{{ reservation.reservationEndDate | date : 'dd/MM/yyyy HH:mm' }}</td>
+            <td>
+              <button class="mr-05" (click)="openDialog(reservation)">
+                Editar
+              </button>
+              
+              <button (click)="handleDelete(reservation._id)">
+                Remover
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    </section>
+    

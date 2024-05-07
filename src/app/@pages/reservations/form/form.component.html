@@ -1,0 +1,47 @@
+<section>
+  
+  <div class="date flex mb-15 pb-15">
+    <img src="/assets/images/icons/date.png" alt="">
+    <div class="ml-05 p-2">
+      <h2 class="mb-05">Formulário para reservas</h2>
+      <p>Preencha corretamente o formulário com campos válidos</p>
+    </div>
+  </div>
+  <form class="p-2" [formGroup]="form" (submit)="handleSubmit()">
+    <div class="flex flex-direction-column">
+      <label class="label" for="name">Nome completo do responsável*</label>
+      <input class="input mb-2" type="text" formControlName="fullName" placeholder="Ex. Arthur Caldas" required>
+    </div>
+    <div class="flex flex-direction-column">
+      <label class="label" for="doc">Documentodo responsável*</label>
+      <input class="input mb-2" type="text" formControlName="document" placeholder="Ex. 01234567890 (apenas numero)" required>
+    </div>
+    <div class="flex flex-direction-column">
+      <label class="label" for="room">Salas disponíveis para reserva*</label>
+      <select class="select mb-2" formControlName="roomId" required>
+        <option value="">Selecione uma sala</option>
+        <option
+        *ngFor="let room of rooms"
+        [value]="room._id">
+        {{ room.name }}
+      </option>
+    </select>
+  </div>
+  <div class="flex">
+    <div>
+      <label class="label" for="amount">Quantidade de pessoas*</label>
+      
+      <input class="input" formControlName="amountOfPeople" type="range" min="3" max="8" step="1">
+    </div>
+    <div>
+      <label class="label" for="date">Horário da reserva</label>
+      <input class="input my-05" type="datetime-local" id="date" formControlName="reservationStartDate" required>
+    </div>
+  </div>
+  <div class="check">
+    <img src="/assets/images/icons/check.png" alt="check" width="20px">
+    <button type="button" class="button -primary -block mt-1" [mat-dialog-close]="true">Cancelar</button>
+    <button type="submit" class="button -secondary -block mt-1">Reservar</button>
+  </div>
+</form>
+</section>

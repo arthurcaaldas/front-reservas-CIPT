@@ -1,2 +1,4 @@
 @import './assets/styles/core/index';
 @import './assets/styles/components/index';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

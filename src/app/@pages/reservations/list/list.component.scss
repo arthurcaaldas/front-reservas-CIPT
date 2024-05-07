@@ -1,0 +1,18 @@
+section {
+  
+  tbody,
+  tr,
+  td {
+    text-align: center;
+    border: 1px solid var(--color-border);
+    padding: var(--size-12);
+  }
+  
+  tr:nth-child(even) {
+    background-color:#d6e4ff;
+  }
+  
+  p {
+    font-size: var(--size-14)
+  }
+}

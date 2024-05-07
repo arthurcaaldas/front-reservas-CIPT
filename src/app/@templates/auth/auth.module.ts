@@ -7,6 +7,7 @@ import { AuthComponent } from './auth.component';
 import { LogInComponent } from '../../@pages/log-in/log-in.component';
 
 import { AuthRoutingModule } from './auth-routing.module';
+import { LoggedGuard } from '../../shared/guards/logged.guard';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,6 @@ import { AuthRoutingModule } from './auth-routing.module';
     AuthRoutingModule
   ],
   exports: [RouterModule],
-  providers: []
+  providers: [LoggedGuard]
 })
 export class AuthModule {}
