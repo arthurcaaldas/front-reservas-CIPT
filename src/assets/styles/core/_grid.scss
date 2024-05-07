@@ -1,0 +1,43 @@
+@use "sass:math";
+
+$columns: 12;
+$gap: 1rem;
+
+$breakpoints: (
+  xs: 480px,
+  sm: 768px,
+  md: 960px,
+  lg: 1170px,
+  xl: 1280px
+);
+
+.container {
+  margin: 0 auto;
+  width: 1150px;
+}
+
+@mixin create-selectors($breakpoint: null) {
+  $infix: if($breakpoint == null, '', '-#{$breakpoint}');
+
+  @for $i from 1 through $columns {
+    .col#{$infix}-#{$i} {
+      flex-basis: calc($i * (100% / $columns));
+      width: calc($i * (100% / $columns));
+      padding-left: $gap;
+      padding-right: $gap;
+    }
+    .col-offset#{$infix}-#{$i} {
+      flex-basis: calc(100% / ($i + 1));
+      width: calc(100% / ($i + 1));
+      padding-left: $gap;
+      padding-right: $gap;
+    }
+  }
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@include create-selectors(md);

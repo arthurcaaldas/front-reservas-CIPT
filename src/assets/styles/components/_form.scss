@@ -1,0 +1,28 @@
+.label {
+  font-size: var(--size-16);
+  font-weight: 600;
+  padding-bottom: var(--size-10);
+  color: var(--color-grey-600);
+}
+
+.input,
+.select {
+  color: var(--color-grey);
+  border: 1px solid var(--color-border);
+  font-size: var(--size-14);
+  font-weight: 500;
+  padding: var(--size-24);
+  border-radius: 35px;
+}
+
+// .select {
+//   color: ;
+//   font-weight: ;
+//   padding: ;  
+// }
+
+.input::placeholder {
+  color: var(--color-grey);
+  font-size: var(--size-14);
+  font-weight: 100;
+}

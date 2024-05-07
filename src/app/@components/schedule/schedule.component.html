@@ -1,0 +1,52 @@
+<section>
+  <div class="container">
+    <div class="grid">
+      <div class="col-md-5">
+        <div class="date flex mb-15 pb-15">
+          <img src="/assets/images/icons/date.png" alt="">
+          <div class="ml-05">
+            <h2 class="mb-05">Formulário para reservas</h2>
+            <p>Preencha corretamente o formulário com campos válidos</p>
+          </div>
+        </div>
+        <form action="">
+          <div class="flex flex-direction-column">
+            <label class="label" for="name">Nome completo do responsável*</label>
+            <input class="input mb-2" type="text" id="name" name="name" placeholder="Ex. Arthur Caldas" required>
+          </div>
+          <div class="flex flex-direction-column">
+            <label class="label" for="doc">Documentodo responsável*</label>
+            <input class="input mb-2" type="text" id="doc" name="doc" placeholder="Ex. 01234567890 (apenas numero)" required>
+          </div>
+          <div class="flex flex-direction-column">
+            <label class="label" for="room">Salas disponíveis para reserva*</label>
+            <select class="select mb-2" name="room" id="room" required>
+              <option value="">Selecione uma sala</option>
+              <option value="Sala1">Sala1</option>
+              <option value="Sala2">Sala2</option>
+              <option value="Sala3">sala3</option>
+              <option value="Sala4">sala4</option>
+              <option value="Sala5">sala5</option>
+              <option value="Sala6">sala6</option>
+            </select>
+          </div>
+          <div class="flex">
+            <div>
+              <label class="label" for="amount">Quantidade de pessoas*</label>
+              <input class="input" type="range" min="3" max="8" step="1">
+            </div>
+            <div>
+              <label class="label" for="date">Horário da reserva</label>
+              <input class="input my-05" type="datetime-local" id="date" name="date" required>
+            </div>
+          </div>
+          <div class="check">
+            <img src="/assets/images/icons/check.png" alt="check" width="20px">
+            <button class="button -secondary -block mt-1">Reservar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+aaa

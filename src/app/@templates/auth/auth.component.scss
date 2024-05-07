@@ -1,0 +1,40 @@
+.login {
+  height: 100vh;
+  background-image: url("/assets/images/Captura.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: 100% 0;
+  padding-right: 18%;
+  
+  a {
+    color: var(--color-purple);
+  }
+  
+  .logo {  
+    img {
+      width: 80px;
+    }
+    
+    h1 {
+      font-size: var(--size-24);
+      color: var(--color-grey-600);
+    }
+    
+    p {
+      color: var(--color-grey);
+      font-weight: 100;
+      font-size: var(--size-14);
+    }
+  }
+  
+  .content {
+    img {
+      border-right: 1px solid var(--color-grey-600);
+      width: 180px;
+    }
+    
+    p {
+      font-size: var(--size-14)
+    };
+  }
+}

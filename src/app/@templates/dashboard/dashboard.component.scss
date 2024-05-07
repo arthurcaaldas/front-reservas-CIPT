@@ -1,0 +1,23 @@
+section {
+  h1 {
+    font-size: var(--size-24);
+    color: var(--color-purple);
+  }
+  
+  p {
+    color: var(--color-grey);
+  }
+  
+  .box {
+    position: relative;
+    
+    img {
+      position: absolute;
+      left: 50px;
+    }
+  }
+  
+  .logo img {
+    width: 80px;
+  }
+}
