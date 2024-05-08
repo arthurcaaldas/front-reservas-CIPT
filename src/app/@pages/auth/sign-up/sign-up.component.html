@@ -2,7 +2,29 @@
   class="form"
   [formGroup]="form"
   (submit)="handleSubmit()">
-  <!-- <div class="flex flex-direction-column">
+  <div class="flex flex-direction-column">
+    <label for="name">Nome completo<span>*</span></label>
+    <input
+      formControlName="name"
+      id="name"
+      class="input"
+      type="text"
+      placeholder=""
+      required />
+  </div>
+
+  <div class="flex flex-direction-column pt-15">
+    <label for="tel">Celular<span>*</span></label>
+    <input
+      formControlName="tel"
+      id="tel"
+      class="input"
+      type="text"
+      placeholder="Apenas números"
+      required />
+  </div>
+
+  <div class="flex flex-direction-column pt-15">
     <label for="email">Email<span>*</span></label>
     <input
       formControlName="email"
@@ -24,7 +46,7 @@
       type="password"
       placeholder="Digite de 6 a 8 números"
       required />
-  </div> -->
+  </div>
 
   <div class="flex justify-end my-1">
     <a href="#">Esqueceu sua senha?</a>
@@ -34,7 +56,7 @@
     type="submit"
     class="button -secondary -block"
     [disabled]="form.invalid">
-    Entrar
+    Cadastrar
   </button>
 
   <div class="mt-1">
