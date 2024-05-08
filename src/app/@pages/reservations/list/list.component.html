@@ -1,7 +1,7 @@
-<section class="">
+<section>
   <div class="grid justify-center">
     <div class="div col-md-12">
-
+      
       <header class="mb-3 ">
         <div class="flex align-items-center justify-space-between">
           <div class="flex">
@@ -21,16 +21,18 @@
       </header>
       
       <table>
-        <tbody>
+        <thead>
           <tr>
-            <td>Número da sala</td>
-            <td>Responsável pela sala</td>
-            <td>Documento responsável</td>
-            <td>Quantidade de Pessoas</td>
-            <td>Horário da reserva</td>
-            <td>Horário da saída</td>
-            <td>Ações</td>
+            <th>Número da sala</th>
+            <th>Responsável pela sala</th>
+            <th>Documento responsável</th>
+            <th>Quantidade de Pessoas</th>
+            <th>Horário da reserva</th>
+            <th>Horário da saída</th>
+            <th>Ações</th>
           </tr>
+        </thead>
+        <tbody>
           <tr *ngFor="let reservation of reservations">
             <td>{{ reservation.roomId.name }}</td>
             <td>{{ reservation.fullName }}</td>
@@ -52,5 +54,4 @@
       </table>
     </div>
   </div>
-    </section>
-    
+</section>

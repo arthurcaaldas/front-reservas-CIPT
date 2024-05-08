@@ -2,29 +2,35 @@ section {
   .date img {
     height: 25px;
   }
-
+  
   .date {
     border-bottom: 1px solid var(--color-grey);
   }
-
+  
   h2 {
     color: var(--color-purple);
     font-size: 1.5rem;
   }
-
+  
   p {
     color: var(--color-grey);
     font-weight: 100;
     font-size: .9rem;
   }
-
-  .check {
+  
+  .relative {
     position: relative;
   }
-
-  .check img {
+  
+  .confirm {
     position: absolute;
-    bottom: 17px;
-    left: 165px;
+    top: 34px;
+    left: 167px;
+  }
+  
+  .cancel {
+    position: absolute;
+    bottom: 20px;
+    left: 167px;
   }
 }

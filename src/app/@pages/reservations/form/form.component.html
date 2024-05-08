@@ -1,10 +1,12 @@
 <section>
   
-  <div class="date flex mb-15 pb-15">
-    <img src="/assets/images/icons/date.png" alt="">
-    <div class="ml-05 p-2">
-      <h2 class="mb-05">Formulário para reservas</h2>
-      <p>Preencha corretamente o formulário com campos válidos</p>
+  <div class="date flex align-items-center">
+    <div class="flex p-2">
+      <img src="/assets/images/icons/date.png" alt="">
+      <div class="">
+        <h2 class="mb-05">Formulário para reservas</h2>
+        <p>Preencha corretamente o formulário com campos válidos</p>
+      </div>
     </div>
   </div>
   <form class="p-2" [formGroup]="form" (submit)="handleSubmit()">
@@ -27,21 +29,22 @@
       </option>
     </select>
   </div>
-  <div class="flex">
-    <div>
+  <div class="relative flex justify-space-between">
+    <div class="flex flex-direction-column">
       <label class="label" for="amount">Quantidade de pessoas*</label>
-      
+      <div class="numbers">1 2 3 4 5 6 7 8</div>
       <input class="input" formControlName="amountOfPeople" type="range" min="3" max="8" step="1">
     </div>
-    <div>
+    <div class="flex flex-direction-column">
       <label class="label" for="date">Horário da reserva</label>
       <input class="input my-05" type="datetime-local" id="date" formControlName="reservationStartDate" required>
     </div>
   </div>
-  <div class="check">
-    <img src="/assets/images/icons/check.png" alt="check" width="20px">
-    <button type="button" class="button -primary -block mt-1" [mat-dialog-close]="true">Cancelar</button>
+  <div class="relative">
+    <img class="confirm" src="/assets/images/icons/check.png" alt="check" width="20px">
     <button type="submit" class="button -secondary -block mt-1">Reservar</button>
+    <img class="cancel" src="/assets/images/icons/cancel.png" alt="check" width="20px">
+    <button type="button" class="button -primary -block mt-1" [mat-dialog-close]="true">Cancelar</button>
   </div>
 </form>
 </section>
