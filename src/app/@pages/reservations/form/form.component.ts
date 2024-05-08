@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { ApiService } from '../../../shared/services/api.service';
+import { ApiService } from '@shared/services/api.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 

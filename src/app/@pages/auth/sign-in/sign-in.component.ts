@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from '../../shared/services/api.service';
-import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { API_TOKEN } from '../../shared/constants/cookies-key';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { CookieService } from 'ngx-cookie-service';
+import { ApiService } from '@shared/services/api.service';
+
+import { API_TOKEN } from '@shared/constants/cookies-key';
 
 @Component({
-  selector: 'oxe-log-in',
-  templateUrl: './log-in.component.html',
-  styleUrl: './log-in.component.scss'
+  selector: 'oxe-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrl: './sign-in.component.scss'
 })
-export class LogInComponent {
+export class SignInComponent {
   public form: FormGroup;
 
   constructor (

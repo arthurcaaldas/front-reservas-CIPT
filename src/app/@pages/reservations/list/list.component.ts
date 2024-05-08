@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../../shared/services/api.service';
+import { ApiService } from '@shared/services/api.service';
 import { MatDialog } from '@angular/material/dialog';
+
 import { ReservationsFormComponent } from '../form/form.component';
 
 @Component({
@@ -11,13 +12,15 @@ import { ReservationsFormComponent } from '../form/form.component';
 export class ReservationsListComponent {
   public reservations: Array<any> = [];
   
-  constructor(private _api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private _api: ApiService,
+    public dialog: MatDialog) {}
   
   ngOnInit() {
     this.handleReservations();
   }
   
-  public openDialog(reservation?: any) {
+  public openDialog(reservation?: any): void {
     const dialogRef = this.dialog.open(ReservationsFormComponent, {
       minWidth: "500px",
       data: reservation

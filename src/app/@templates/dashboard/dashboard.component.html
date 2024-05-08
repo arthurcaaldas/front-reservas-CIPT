@@ -1,28 +1,48 @@
-<section>
-  <div class="grid">
-    <div class="col-md-12">
-      <div class="flex">
-        <div class="dashboard flex flex-direction-column justify-space-between">
-          <div class="logo m-2">
-            <img src="/assets/images/cipt-bg.png" alt="">
-          </div>
+<nav class="flex flex-direction-column justify-space-between">
+  <div>
+    <ul class="brand mb-2 pb-2">
+      <li>
+        <a [routerLink]="['/']">
+          <img src="/assets/images/cipt.png" alt="CIPT">
+        </a>
+      </li>
+    </ul>
+  
+    <ul class="menu">
+      <li>
+        <a [routerLink]="['/reservations']">
+          <img
+            src="/assets/images/icons/calendar-filled.png"
+            alt="Ícone para reservas" />
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/']">
+          <img
+            src="/assets/images/icons/settings-cog.png"
+            alt="Ícone para configurações" />
+        </a>
+      </li>
+    </ul>
+  </div>
 
-          <div class="mb-4 flex justify-center">
-            <img src="/assets/images/icons/quit.png" alt="">
-          </div>
-        </div>
-        <div class="flex justify-center mt-5">
-          <main>
-            <router-outlet></router-outlet>
-          </main>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<footer>
-  <div class="content flex align-items-center justify-center mt-3">
-    <img class="mr-05" src="/assets/images/gov-al.png" alt="">
-    <p>Secretaria da Ciência, <br />da Tecnologia e <br />Inovação (SECTI)</p>
-  </div>
-</footer>
+  <ul class="menu -border-top mt-2 pt-2">
+    <li>
+      <a [routerLink]="['/auth', 'sign-out']">
+        <img
+          src="/assets/images/icons/logout.png"
+          alt="Ícone para configurações" />
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="content">
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  
+  <footer class="footer flex justify-center py-2">
+    <img src="/assets/images/secti-al.png" alt="SECTI Alagoas">
+  </footer>
+</div>

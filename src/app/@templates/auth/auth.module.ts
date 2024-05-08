@@ -3,16 +3,21 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AuthComponent } from './auth.component';
-import { LogInComponent } from '../../@pages/log-in/log-in.component';
-
 import { AuthRoutingModule } from './auth-routing.module';
-import { LoggedGuard } from '../../shared/guards/logged.guard';
+import { LoggedGuard } from '@shared/guards/logged.guard';
+
+import { AuthComponent } from './auth.component';
+
+import { SignInComponent } from '@pages/auth/sign-in/sign-in.component';
+import { SignOutComponent } from '@pages/auth/sign-out/sign-out.component';
+import { SignUpComponent } from '@pages/auth/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AuthComponent,
-    LogInComponent
+    SignInComponent,
+    SignOutComponent,
+    SignUpComponent
   ],
   imports: [
     CommonModule,

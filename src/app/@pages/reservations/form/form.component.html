@@ -1,24 +1,26 @@
 <section>
   
-  <div class="date flex align-items-center">
+  <div class="header flex align-items-center">
     <div class="flex p-2">
-      <img src="/assets/images/icons/date.png" alt="">
-      <div class="">
+      <div class="mr-05">
+        <img src="/assets/images/icons/date.png" alt="Ícone de um calendário">
+      </div>
+      <div>
         <h2 class="mb-05">Formulário para reservas</h2>
         <p>Preencha corretamente o formulário com campos válidos</p>
       </div>
     </div>
   </div>
   <form class="p-2" [formGroup]="form" (submit)="handleSubmit()">
-    <div class="flex flex-direction-column">
+    <div class="input-group">
       <label class="label" for="name">Nome completo do responsável*</label>
       <input class="input mb-2" type="text" formControlName="fullName" placeholder="Ex. Arthur Caldas" required>
     </div>
-    <div class="flex flex-direction-column">
+    <div class="input-group">
       <label class="label" for="doc">Documentodo responsável*</label>
       <input class="input mb-2" type="text" formControlName="document" placeholder="Ex. 01234567890 (apenas numero)" required>
     </div>
-    <div class="flex flex-direction-column">
+    <div class="input-group">
       <label class="label" for="room">Salas disponíveis para reserva*</label>
       <select class="select mb-2" formControlName="roomId" required>
         <option value="">Selecione uma sala</option>

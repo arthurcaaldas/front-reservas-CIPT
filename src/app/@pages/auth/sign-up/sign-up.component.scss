@@ -1,0 +1,27 @@
+.form {
+  label {
+    font-size: var(--size-16);
+    font-weight: 500;
+    color: var(--color-grey-600);
+    margin-bottom: .5rem;
+
+    > span {
+      color: var(--color-red);
+    }
+  }
+  
+  p,
+  a {
+    font-size: var(--size-16);
+    font-weight: 500;
+  }
+
+  p {
+    color: var(--color-grey-600);
+  }
+
+  a {
+    color: var(--color-purple);
+    text-decoration: none;
+  }
+}

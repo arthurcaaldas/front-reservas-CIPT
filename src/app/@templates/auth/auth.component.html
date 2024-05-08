@@ -1,30 +1,66 @@
-<section class="login flex align-items-center">
-  <div class="container">
-    <div class="grid">
-      <div class="div col-md-6">
-        <div class="flex flex-direction-column">
-          <div class="logo flex align-items-center mb-3">
-            <div class="mr-1">
-              <img class="" src="/assets/images/cipt-bg.png" alt="">
-            </div>
-            <div>
-              <h1 class="mb-05">Acesso ao Sistema</h1>
-              <p>Veja a disponibilidade para agendamento de salas no CIPT</p>
-            </div>
+<section class="auth flex align-items-center">
+  <div class="auth-form">
+    <div class="flex flex-direction-column">
+      <div class="mb-3">
+        <header class="header flex align-items-center">
+          <div class="brand mr-1">
+            <img src="/assets/images/cipt.png" alt="CIPT">
           </div>
-          
-          <router-outlet></router-outlet>
-          
-        </div>
-        <div class="content flex align-items-center justify-center mt-5">
-          <img class="mr-05" src="/assets/images/gov-al.png" alt="">
-          <p>Secretaria da Ciência, <br />da Tecnologia e <br />Inovação (SECTI)</p>
-        </div>
+
+          <div>
+            <h1 class="mb-05">Acesso ao Sistema</h1>
+            <p>Veja a disponibilidade para agendamento de salas no CIPT</p>
+          </div>
+        </header>
       </div>
-      <div class="grid">
-        <div class="col-md-6">
-        </div>
-      </div>
+      
+      <router-outlet></router-outlet>
+    </div>
+
+    <footer class="footer flex justify-center mt-5">
+      <img src="/assets/images/secti-al.png" alt="SECTI Alagoas">
+    </footer>
+  </div>
+
+  <div class="auth-bg">
+    <div class="details-1">
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+    </div>
+
+    <div class="details-2">
+      <span class="triangle"></span>
+      <span class="triangle"></span>
+      <span class="triangle"></span>
+      <span class="triangle"></span>
+      <span class="triangle"></span>
+      <span class="triangle"></span>
+      <span class="triangle"></span>
+      <span class="triangle"></span>
+      <span class="triangle"></span>
+      <span class="triangle"></span>
+    </div>
+
+    <div class="details-3">
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
+      <span class="square"></span>
     </div>
   </div>
 </section>
