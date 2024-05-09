@@ -1,21 +1,62 @@
 section {
-  
   h1 {
     color: var(--color-purple);
     font-size: var(--size-24)
-
+    
   }
-
+  
+  .relative {
+    position: relative;
+    
+    img {
+      position: absolute;
+      top: 15px;
+      left: 50px;
+    }
+  }
+  
+  th,
   tr,
   td {
     border: 1px solid var(--color-border);
-    text-align: center;
+    font-size: var(--size-14);
+    text-align: start;
     padding: var(--size-14);
+    font-weight: 400;
+  }
+  
+  th {
+    color: var( --color-grey-600);
+  }
+  
+  td {
+    color: var(--color-grey);
   }
   
   p {
     font-size: var(--size-12);
     color: var(--color-grey);
+    font-weight: 400;
+  }
+  
+  table .edit,
+  table .remove,
+  table .completed {
+    color: var(--color-white);
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  table .edit {
+    background-color: var(--color-purple);
+  }
+  
+  table .remove {
+    background-color: var(--color-red);
+  }
 
+  table .completed {
+    background-color: var(--color-green);
   }
 }

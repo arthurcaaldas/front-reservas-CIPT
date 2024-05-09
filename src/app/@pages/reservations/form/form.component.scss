@@ -17,6 +17,18 @@ section {
     font-weight: 500;
     font-size: .9rem;
   }
+
+  span {
+    font-size: var(--size-14);
+    font-weight: 400;
+    margin-right: 15px;
+  }
+
+  .numbers {
+    position: absolute;
+    top: 21px;
+    left: 32px;
+  }
   
   .relative {
     position: relative;

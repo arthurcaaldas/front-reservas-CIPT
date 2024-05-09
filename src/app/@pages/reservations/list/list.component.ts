@@ -48,4 +48,16 @@ export class ReservationsListComponent {
       error: (error) => console.error(error),
     })
   }
+
+  // public completed(id: string): void {
+  //   const isDelete = confirm("Você deseja continuar?");
+    
+  //   if (!isDelete) return;
+
+  //   this._api.deleteReservation(id)
+  //     .subscribe({
+  //       next: () => this.completed(),
+  //       error: (error) => console.error(error),
+  //     })
+  // }
 }
