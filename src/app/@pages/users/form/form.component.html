@@ -1,0 +1,94 @@
+<section>
+  <div class="header flex align-items-center">
+    <div class="flex p-2">
+      <div class="mr-05">
+        <img src="/assets/images/icons/date.png" alt="Ícone de um calendário">
+      </div>
+      <div>
+        <h2 class="mb-05">Formulário para usuários</h2>
+        <p>Preencha corretamente o formulário com campos válidos</p>
+      </div>
+    </div>
+  </div>
+
+  <form
+    class="p-2"
+    [formGroup]="form"
+    (submit)="handleSubmit()">
+    <div class="form-group">
+      <label for="name">Nome completo<span>*</span></label>
+      <input
+        type="text"
+        formControlName="fullName"
+        placeholder="Ex.: Arthur Caldas"
+        required />
+    </div>
+  
+    <div class="form-group pt-15">
+      <label for="telefone">Celular<span>*</span></label>
+      <input
+        type="text"
+        formControlName="phoneNumber"
+        placeholder="Ex.: (00) 00000-0000"
+        mask="(00) 00000-0000"
+        required />
+    </div>
+  
+    <div class="form-group pt-15">
+      <label for="email">Email<span>*</span></label>
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="Digite seu email"
+        required />
+    </div>
+  
+    <div class="form-group pt-15">
+      <label for="password">Senha<span>*</span></label>
+      <input
+        type="password"
+        formControlName="password"
+        min="6"
+        max="8"
+        placeholder="Digite de 6 a 8 números"
+        required />
+    </div>
+  
+    <div class="form-group pt-15">
+      <label for="name">Token de cadastro<span>*</span></label>
+      <input
+        type="text"
+        formControlName="tokenPass"
+        placeholder="Token é requerido para criar usuários"
+        required />
+    </div>
+
+    <div class="flex align-items-center">
+      <button
+        type="submit"
+        class="button -secondary -block mt-1"
+        [disabled]="form.invalid">
+        <img
+          class="confirm"
+          src="/assets/images/icons/check.png"
+          alt="check"
+          width="20px" />
+        {{ isEditing ? 'Atualizar' : 'Cadastrar' }} usuário
+      </button>
+    </div>
+
+    <div class="flex align-items-center">
+      <button
+        type="button"
+        class="button -primary -block mt-1"
+        [mat-dialog-close]="true">
+        <img
+          class="cancel"
+          src="/assets/images/icons/cancel.png"
+          alt="check"
+          width="20px" />
+        Cancelar
+      </button>
+    </div>
+  </form>
+</section>

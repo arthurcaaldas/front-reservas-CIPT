@@ -33,7 +33,7 @@ export class SignInComponent {
           this._cookieService.set(API_TOKEN, token, 1, '/');
           this._router.navigate(['/']);
         },
-        error: (error) => console.error(error),
+        error: ({ error }) => alert(error.message),
       })
   }
 }

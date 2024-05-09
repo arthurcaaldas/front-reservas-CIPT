@@ -13,9 +13,15 @@
               <p>Veja a disponibilidade para agendamento de salas no CIPT</p>
             </div>
           </div>
-          <div class="relative flex align-items-center">
-            <img src="/assets/images/icons/date+.png" alt="">
-            <button (click)="openDialog()" class="button -secondary -block">Reservar sala</button>
+          <div class="flex align-items-center">
+            <button
+              (click)="openDialog()"
+              class="button -secondary -block">
+              <img
+                src="/assets/images/icons/date+.png"
+                alt="Ícone de Calendário" />
+              Reservar sala
+            </button>
           </div>
         </div>
       </header>
@@ -37,7 +43,7 @@
             <tr *ngFor="let reservation of reservations">
               <td>{{ reservation.roomId.name }}</td>
               <td>{{ reservation.fullName }}</td>
-              <td>{{ reservation.document }}</td>
+              <td>{{ reservation.document | mask: '000.000.000-00' }}</td>
               <td>{{ reservation.amountOfPeople }} pessoas</td>
               <td>{{ reservation.reservationStartDate | date : 'dd/MM/yyyy HH:mm' }}</td>
               <td>{{ reservation.reservationEndDate | date : 'dd/MM/yyyy HH:mm' }}</td>
@@ -46,12 +52,8 @@
                   Editar
                 </button>
                 
-                <button class="mx-05 remove" (click)="handleDelete(reservation._id)">
+                <button class="remove mx-05" (click)="handleDelete(reservation._id)">
                   Remover
-                </button>
-
-                <button class="completed" (click)="handleDelete(reservation._id)">
-                  Concluído
                 </button>
               </td>
             </tr>

@@ -21,28 +21,15 @@ section {
   span {
     font-size: var(--size-14);
     font-weight: 400;
-    margin-right: 15px;
   }
 
   .numbers {
     position: absolute;
-    top: 21px;
-    left: 32px;
+    top: 5px;
   }
-  
+
   .relative {
     position: relative;
-  }
-  
-  .confirm {
-    position: absolute;
-    top: 34px;
-    left: 167px;
-  }
-  
-  .cancel {
-    position: absolute;
-    bottom: 20px;
-    left: 167px;
+    padding: 5px;
   }
 }

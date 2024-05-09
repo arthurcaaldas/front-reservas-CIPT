@@ -1,0 +1,20 @@
+section {
+  .header img {
+    height: 25px;
+  }
+  
+  .header {
+    border-bottom: 1px solid var(--color-border-2);
+  }
+  
+  h2 {
+    color: var(--color-purple);
+    font-size: 1.5rem;
+  }
+  
+  p {
+    color: var(--color-grey);
+    font-weight: 500;
+    font-size: .9rem;
+  }
+}

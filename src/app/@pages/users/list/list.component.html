@@ -1,0 +1,57 @@
+<section>
+  <div class="grid justify-center">
+    <div class="div col-md-12">
+      
+      <header class="mb-3 ">
+        <div class="flex align-items-center justify-space-between">
+          <div class="flex">
+            <div class="mr-05">
+              <img src="/assets/images/icons/date.png" alt="">
+            </div>
+            <div>
+              <h1 class="mb-05">Lista de usuários</h1>
+              <p>Preencha corretamente o formulário</p>
+            </div>
+          </div>
+          <div class="flex align-items-center">
+            <button
+              (click)="openDialog()"
+              class="button -secondary -block">
+              <img
+                src="/assets/images/icons/date+.png"
+                alt="Ícone de Calendário" />
+              Cadastrar usuário
+            </button>
+          </div>
+        </div>
+      </header>
+      
+      <div class="flex justify-center flex-direction-column">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome do usuário</th>
+              <th>Email do usuário</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.fullName }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <button class="edit" (click)="openDialog(user)">
+                  Editar
+                </button>
+                
+                <button class="remove mx-05" (click)="handleDelete(user._id)">
+                  Remover
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

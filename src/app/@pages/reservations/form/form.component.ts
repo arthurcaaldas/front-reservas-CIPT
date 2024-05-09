@@ -1,7 +1,9 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewChild } from '@angular/core';
 import { ApiService } from '@shared/services/api.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import moment from 'moment';
 
 @Component({
   selector: 'oxe-reservations-form',
@@ -12,6 +14,7 @@ export class ReservationsFormComponent {
   public form: FormGroup;
   public rooms: Array<any> = [];
   public isEditing: boolean = false;
+  public today = new Date();
 
   constructor(
     private _fb: FormBuilder,
@@ -24,8 +27,8 @@ export class ReservationsFormComponent {
       document: [null, [Validators.required]],
       roomId: [null, [Validators.required]],
       amountOfPeople: [3, [Validators.required]],
-      reservationStartDate: [new Date(), [Validators.required]],
-      reservationEndDate: [new Date(), [Validators.required]]
+      reservationStartDate: [null, [Validators.required]],
+      reservationEndDate: [null, [Validators.required]]
     })
   }
 
@@ -40,6 +43,21 @@ export class ReservationsFormComponent {
         roomId: this.reservation.roomId._id
       });
     }
+  }
+
+  ngAfterViewInit() {
+    const endDate = this.form.get('reservationEndDate');
+
+    this.form.get('reservationStartDate')?.valueChanges.subscribe({
+      next: (value) => {
+        const a = moment(value);
+        const b = moment(endDate?.value);
+        const diff = a.diff(b);
+
+        if (diff > 0) 
+          this.form.get('reservationEndDate')?.patchValue(value);
+      }
+    })
   }
 
   public handleRooms(): void {

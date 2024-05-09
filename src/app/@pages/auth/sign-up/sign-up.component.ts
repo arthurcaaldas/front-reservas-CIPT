@@ -17,8 +17,11 @@ export class SignUpComponent {
     private _api: ApiService,
     private _router: Router) {
     this.form = this._fb.group({
-      email: ['', [Validators.minLength(6)]],
-      password: ['', [Validators.minLength(6), Validators.maxLength(8)]]
+      fullName: [null, [Validators.required]],
+      email: [null, [Validators.email]],
+      phoneNumber: [null, [Validators.minLength(11), Validators.maxLength(11)]],
+      password: [null, [Validators.minLength(6), Validators.maxLength(8)]],
+      tokenPass: [null, [Validators.minLength(50), Validators.maxLength(50)]]
     }); 
   }
 

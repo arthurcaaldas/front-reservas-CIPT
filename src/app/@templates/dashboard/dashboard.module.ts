@@ -3,11 +3,24 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { IConfig, provideEnvironmentNgxMask } from 'ngx-mask';
 
 import { DashboardComponent } from './dashboard.component';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ReservationsModule } from '../../@pages/reservations/reservations.module';
+import { RoomsModule } from '@pages/rooms/rooms.module';
+import { UsersModule } from '@pages/users/users.module';
+
+const maskConfigFunction: () => Partial<IConfig> = () => {
+  return {
+    validation: false,
+  };
+};
+
+const modules = [
+  MatDialogModule
+]
 
 @NgModule({
   declarations: [
@@ -19,12 +32,16 @@ import { ReservationsModule } from '../../@pages/reservations/reservations.modul
     ReactiveFormsModule,
     DashboardRoutingModule,
     ReservationsModule,
-    MatDialogModule
+    RoomsModule,
+    UsersModule,
+    ...modules
   ],
   exports: [
     RouterModule,
-    MatDialogModule
+    ...modules
   ],
-  providers: []
+  providers: [
+    provideEnvironmentNgxMask(maskConfigFunction),
+  ]
 })
 export class DashboardModule {}

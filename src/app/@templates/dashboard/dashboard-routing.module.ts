@@ -2,7 +2,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ReservationsListComponent } from '../../@pages/reservations/list/list.component';
+import { ReservationsListComponent } from '@pages/reservations/list/list.component';
+import { RoomsListComponent } from '@pages/rooms/list/list.component';
+import { UsersListComponent } from '@pages/users/list/list.component';
 
 const routes: Routes = [
   {
@@ -13,6 +15,14 @@ const routes: Routes = [
   {
     path: 'reservations',
     component: ReservationsListComponent,
+  },
+  {
+    path: 'rooms',
+    component: RoomsListComponent,
+  },
+  {
+    path: 'users',
+    component: UsersListComponent,
   },
   {
     path: '**',

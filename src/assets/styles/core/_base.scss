@@ -17,10 +17,26 @@ body, html {
   width: 100%;
 }
 
+img {
+  vertical-align: text-bottom;
+}
+
 oxe-root,
 oxe-root router-outlet + * {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
   height: 100%;
+}
+
+.mat-datepicker-content-container  {
+  background-color: var(--color-white);
+  border-radius: 8px 8px 8px 0;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+}
+
+.mat-calendar-body-disabled .mat-calendar-body-cell-content {
+  background-color: #eaeaea;
+  color:#bababa;
 }

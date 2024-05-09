@@ -12,48 +12,110 @@
     </div>
   </div>
   <form class="p-2" [formGroup]="form" (submit)="handleSubmit()">
-    <div class="input-group">
-      <label class="label" for="name">Nome completo do responsável*</label>
-      <input class="input mb-2" type="text" formControlName="fullName" placeholder="Ex. Arthur Caldas" required>
+    <div class="form-group">
+      <label class="label" for="name">Nome completo do responsável<span>*</span></label>
+      <input
+        class="input mb-2"
+        type="text"
+        formControlName="fullName"
+        placeholder="Ex. Arthur Caldas"
+        required />
     </div>
-    <div class="input-group">
-      <label class="label" for="doc">Documentodo responsável*</label>
-      <input class="input mb-2" type="text" formControlName="document" placeholder="Ex. 01234567890 (apenas numero)" required>
+    <div class="form-group">
+      <label class="label" for="doc">Documentodo responsável<span>*</span></label>
+      <input
+        class="input mb-2"
+        type="text"
+        formControlName="document"
+        mask="000.000.000-00"
+        placeholder="Ex. 01234567890 (apenas numero)"
+        required />
     </div>
-    <div class="input-group">
-      <label class="label" for="room">Salas disponíveis para reserva*</label>
+    <div class="form-group">
+      <label class="label" for="room">Salas disponíveis para reserva<span>*</span></label>
       <select class="select mb-2" formControlName="roomId" required>
         <option value="">Selecione uma sala</option>
         <option
         *ngFor="let room of rooms"
         [value]="room._id">
         {{ room.name }}
-      </option>
-    </select>
-  </div>
-  <div class="relative flex justify-space-between">
-    <div class="flex flex-direction-column">
-      <label class="label" for="amount">Quantidade de pessoas*</label>
-      <div class="numbers relative">
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span>7</span>
-        <span>8</span>
+        </option>
+      </select>
+    </div>
+
+    <div class="flex">
+      <div class="mr-05 flex justify-space-evenly">
+        <div class="flex flex-direction-column">
+          <label class="label" for="amount">Quantidade de pessoas<span>*</span></label>
+          <div class="numbers relative flex justify-space-between">
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+          </div>
+          <input class="input" formControlName="amountOfPeople" type="range" min="3" max="8" step="1">
+        </div>
       </div>
-      <input class="input" formControlName="amountOfPeople" type="range" min="3" max="8" step="1">
+
+      <div class="flex">
+        <mat-form-field class="px-2">
+          <input
+            matInput
+            [ngxMatDatetimePicker]="startDate"
+            placeholder="Escolha a data"
+            [min]="today"
+            formControlName="reservationStartDate">
+            <mat-datepicker-toggle
+            matSuffix
+            [for]="$any(startDate)">
+          </mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #startDate></ngx-mat-datetime-picker>
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input
+            matInput
+            [ngxMatDatetimePicker]="endDate"
+            placeholder="Escolha a data"
+            [min]="form.get('reservationStartDate')?.value || today"
+            formControlName="reservationEndDate">
+            <mat-datepicker-toggle
+            matSuffix
+            [for]="$any(endDate)">
+          </mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #endDate></ngx-mat-datetime-picker>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="flex flex-direction-column">
-      <label class="label" for="date">Horário da reserva</label>
-      <input class="input my-05" type="datetime-local" id="date" formControlName="reservationStartDate" required>
+
+    <div>
+      <div class="flex align-items-center justify-center">
+        <button
+          type="submit"
+          class=" button -secondary -block mt-1"
+          [disabled]="form.invalid">
+          <img
+          src="/assets/images/icons/check.png"
+          alt="check"
+          width="20px" />
+          {{ isEditing ? 'Atualizar' : 'Reservar' }} sala
+        </button>
+      </div>
+    
+      <div class="flex align-items-center">
+        <button
+          type="button"
+          class="justify-center button -primary -block mt-1"
+          [mat-dialog-close]="true">
+          <img
+          src="/assets/images/icons/cancel.png"
+          alt="check"
+          width="20px" />
+          Cancelar
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="relative">
-    <img class="confirm" src="/assets/images/icons/check.png" alt="check" width="20px">
-    <button type="submit" class="button -secondary -block mt-1">Reservar</button>
-    <img class="cancel" src="/assets/images/icons/cancel.png" alt="check" width="20px">
-    <button type="button" class="button -primary -block mt-1" [mat-dialog-close]="true">Cancelar</button>
-  </div>
-</form>
+  </form>
 </section>
