@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ApiService } from '@shared/services/api.service';
 import { MatDialog } from '@angular/material/dialog';
 
 import { UsersFormComponent } from '../form/form.component';
+
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'oxe-users-list',
@@ -11,6 +15,11 @@ import { UsersFormComponent } from '../form/form.component';
 })
 export class UsersListComponent {
   public users: Array<any> = [];
+  public displayedColumns: string[] = ['fullName', 'email', 'createdAt', 'updatedAt', '_id'];
+  public dataSource: MatTableDataSource<any> = new MatTableDataSource();
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   
   constructor(
     private _api: ApiService,
@@ -18,6 +27,15 @@ export class UsersListComponent {
   
   ngOnInit() {
     this.handleUsers();
+  }
+  
+  public applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
   
   public openDialog(user?: any): void {
@@ -51,7 +69,12 @@ export class UsersListComponent {
   public handleUsers(): void {
     this._api.getUsers()
     .subscribe({
-      next: (users) => this.users = users,
+      next: (users) => {
+        this.users = users;
+        this.dataSource = new MatTableDataSource(this.users);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
       error: (error) => console.error(error),
     })
   }

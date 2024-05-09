@@ -40,3 +40,12 @@ oxe-root router-outlet + * {
   background-color: #eaeaea;
   color:#bababa;
 }
+
+.mat-mdc-form-field-subscript-wrapper {
+  height: 0;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}

@@ -39,83 +39,83 @@
         *ngFor="let room of rooms"
         [value]="room._id">
         {{ room.name }}
-        </option>
-      </select>
-    </div>
+      </option>
+    </select>
+  </div>
 
-    <div class="flex">
-      <div class="mr-05 flex justify-space-evenly">
-        <div class="flex flex-direction-column">
-          <label class="label" for="amount">Quantidade de pessoas<span>*</span></label>
-          <div class="numbers relative flex justify-space-between">
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-            <span>7</span>
-            <span>8</span>
-          </div>
-          <input class="input" formControlName="amountOfPeople" type="range" min="3" max="8" step="1">
-        </div>
+  <div class="flex">
+    <div class="mr-05 flex justify-space-evenly">
+      <div class="flex flex-direction-column">
+        <label class="label" for="amount">Quantidade de pessoas<span>*</span></label>
+        <div class="numbers relative flex justify-space-between">
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
       </div>
+      <input class="input" formControlName="amountOfPeople" type="range" min="3" max="8" step="1">
+    </div>
+  </div>
 
-      <div class="flex">
-        <mat-form-field class="px-2">
-          <input
-            matInput
-            [ngxMatDatetimePicker]="startDate"
-            placeholder="Escolha a data"
-            [min]="today"
-            formControlName="reservationStartDate">
-            <mat-datepicker-toggle
-            matSuffix
-            [for]="$any(startDate)">
-          </mat-datepicker-toggle>
-          <ngx-mat-datetime-picker #startDate></ngx-mat-datetime-picker>
-        </mat-form-field>
+  <div class="flex">
+    <mat-form-field class="px-2">
+    <input
+      matInput
+      [ngxMatDatetimePicker]="startDate"
+      placeholder="Escolha a data"
+      [min]="today"
+      formControlName="reservationStartDate">
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="$any(startDate)">
+    </mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #startDate></ngx-mat-datetime-picker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      [ngxMatDatetimePicker]="endDate"
+      placeholder="Escolha a data"
+      [min]="form.get('reservationStartDate')?.value || today"
+      formControlName="reservationEndDate">
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="$any(endDate)">
+    </mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #endDate></ngx-mat-datetime-picker>
+  </mat-form-field>
+</div>
+</div>
+
+<div>
+  <div class="flex align-items-center justify-center">
+    <button
+      type="submit"
+      class=" button -secondary -block mt-1"
+    [disabled]="form.invalid">
+    <img
+      src="/assets/images/icons/check.png"
+      alt="check"
+      width="20px" />
+    {{ isEditing ? 'Atualizar' : 'Reservar' }} sala
+  </button>
+</div>
     
-        <mat-form-field>
-          <input
-            matInput
-            [ngxMatDatetimePicker]="endDate"
-            placeholder="Escolha a data"
-            [min]="form.get('reservationStartDate')?.value || today"
-            formControlName="reservationEndDate">
-            <mat-datepicker-toggle
-            matSuffix
-            [for]="$any(endDate)">
-          </mat-datepicker-toggle>
-          <ngx-mat-datetime-picker #endDate></ngx-mat-datetime-picker>
-        </mat-form-field>
-      </div>
-    </div>
-
-    <div>
-      <div class="flex align-items-center justify-center">
-        <button
-          type="submit"
-          class=" button -secondary -block mt-1"
-          [disabled]="form.invalid">
-          <img
-          src="/assets/images/icons/check.png"
-          alt="check"
-          width="20px" />
-          {{ isEditing ? 'Atualizar' : 'Reservar' }} sala
-        </button>
-      </div>
-    
-      <div class="flex align-items-center">
-        <button
-          type="button"
-          class="justify-center button -primary -block mt-1"
-          [mat-dialog-close]="true">
-          <img
-          src="/assets/images/icons/cancel.png"
-          alt="check"
-          width="20px" />
-          Cancelar
-        </button>
-      </div>
-    </div>
-  </form>
+<div class="flex align-items-center">
+  <button
+    type="button"
+    class="justify-center button -primary -block mt-1"
+    [mat-dialog-close]="true">
+    <img
+      src="/assets/images/icons/cancel.png"
+      alt="check"
+      width="20px" />
+    Cancelar
+  </button>
+</div>
+</div>
+</form>
 </section>

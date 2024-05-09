@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ApiService } from '@shared/services/api.service';
 import { MatDialog } from '@angular/material/dialog';
 
 import { RoomsFormComponent } from '../form/form.component';
+
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'oxe-rooms-list',
@@ -11,6 +15,11 @@ import { RoomsFormComponent } from '../form/form.component';
 })
 export class RoomsListComponent {
   public rooms: Array<any> = [];
+  public displayedColumns: string[] = ['name', 'number', '_id'];
+  public dataSource: MatTableDataSource<any> = new MatTableDataSource();
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   
   constructor(
     private _api: ApiService,
@@ -18,6 +27,15 @@ export class RoomsListComponent {
   
   ngOnInit() {
     this.handleRooms();
+  }
+
+  public applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
   
   public openDialog(room?: any): void {
@@ -44,20 +62,13 @@ export class RoomsListComponent {
   public handleRooms(): void {
     this._api.getRooms()
     .subscribe({
-      next: (rooms) => this.rooms = rooms,
+      next: (rooms) => {
+        this.rooms = rooms;
+        this.dataSource = new MatTableDataSource(this.rooms);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
       error: (error) => console.error(error),
     })
   }
-
-  // public completed(id: string): void {
-  //   const isDelete = confirm("Você deseja continuar?");
-    
-  //   if (!isDelete) return;
-
-  //   this._api.deleteReservation(id)
-  //     .subscribe({
-  //       next: () => this.completed(),
-  //       error: (error) => console.error(error),
-  //     })
-  // }
 }

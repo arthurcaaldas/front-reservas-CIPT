@@ -25,33 +25,49 @@
           </div>
         </div>
       </header>
+
+      <mat-form-field>
+        <mat-label>Filtro</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex.: Sala 02" #input>
+      </mat-form-field>
       
-      <div class="flex justify-center flex-direction-column">
-        <table>
-          <thead>
-            <tr>
-              <th>Nome da sala</th>
-              <th>Número da sala</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let room of rooms">
-              <td>{{ room.name }}</td>
-              <td>{{ room.number }}</td>
-              <td>
-                <button class="edit" (click)="openDialog(room)">
-                  Editar
-                </button>
-                
-                <button class="remove mx-05" (click)="handleDelete(room._id)">
-                  Remover
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table mat-table [dataSource]="dataSource" matSort>
+    
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome da sala</th>
+          <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="number">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Número da sala</th>
+          <td mat-cell *matCellDef="let row"> {{row.number}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="_id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
+          <td mat-cell *matCellDef="let row">
+            <button class="edit" (click)="openDialog(row)">
+              Editar
+            </button>
+            
+            <button class="remove mx-05" (click)="handleDelete(row._id)">
+              Remover
+            </button>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">Nenhum dado encontrado com o filtro "{{input.value}}"</td>
+        </tr>
+      </table>
+    
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Selecione uma página">
+      </mat-paginator>
     </div>
   </div>
 </section>

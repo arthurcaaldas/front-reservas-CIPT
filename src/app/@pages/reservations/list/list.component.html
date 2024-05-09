@@ -25,41 +25,69 @@
           </div>
         </div>
       </header>
+
+      <mat-form-field>
+        <mat-label>Filtro</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex.: João da Silva" #input>
+      </mat-form-field>
       
-      <div class="flex justify-center flex-direction-column">
-        <table>
-          <thead>
-            <tr>
-              <th>Número da sala</th>
-              <th>Responsável pela sala</th>
-              <th>Documento responsável</th>
-              <th>Quantidade de Pessoas</th>
-              <th>Horário da reserva</th>
-              <th>Horário da saída</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let reservation of reservations">
-              <td>{{ reservation.roomId.name }}</td>
-              <td>{{ reservation.fullName }}</td>
-              <td>{{ reservation.document | mask: '000.000.000-00' }}</td>
-              <td>{{ reservation.amountOfPeople }} pessoas</td>
-              <td>{{ reservation.reservationStartDate | date : 'dd/MM/yyyy HH:mm' }}</td>
-              <td>{{ reservation.reservationEndDate | date : 'dd/MM/yyyy HH:mm' }}</td>
-              <td>
-                <button class="edit" (click)="openDialog(reservation)">
-                  Editar
-                </button>
-                
-                <button class="remove mx-05" (click)="handleDelete(reservation._id)">
-                  Remover
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table mat-table [dataSource]="dataSource" matSort>
+    
+        <ng-container matColumnDef="roomName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Número da sala</th>
+          <td mat-cell *matCellDef="let row"> {{row.roomName}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="fullName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Responsável pela sala</th>
+          <td mat-cell *matCellDef="let row"> {{row.fullName}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="document">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Documento responsável</th>
+          <td mat-cell *matCellDef="let row"> {{row.document | mask: '000.000.000-00'}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="amountOfPeople">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantidade de Pessoas</th>
+          <td mat-cell *matCellDef="let row"> {{row.amountOfPeople}} pessoas</td>
+        </ng-container>
+
+        <ng-container matColumnDef="reservationStartDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Horário da reserva</th>
+          <td mat-cell *matCellDef="let row"> {{row.reservationStartDate | date : 'dd/MM/yyyy HH:mm'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="reservationEndDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Horário da saída</th>
+          <td mat-cell *matCellDef="let row"> {{row.reservationEndDate | date : 'dd/MM/yyyy HH:mm'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="_id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
+          <td mat-cell *matCellDef="let row">
+            <button class="edit" (click)="openDialog(row)">
+              Editar
+            </button>
+            
+            <button class="remove mx-05" (click)="handleDelete(row._id)">
+              Remover
+            </button>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">Nenhum dado encontrado com o filtro "{{input.value}}"</td>
+        </tr>
+      </table>
+    
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Selecione uma página">
+      </mat-paginator>
     </div>
   </div>
 </section>
