@@ -35,8 +35,7 @@ section,
   }
 
   .brand {  
-    background-color: var(--color-blue-800);
-    width: 80px;
+    width: 100px;
     padding: .5rem;
   
     > img {
@@ -45,9 +44,14 @@ section,
   }
 }
 
-.footer {
+footer {
   > img {
     max-width: 160px;
+  }
+
+  h4 {
+    color: var(--color-grey);
+    line-height: 1.2;
   }
 }
 

@@ -1,4 +1,4 @@
-<nav class="flex flex-direction-column justify-space-between">
+<nav class="flex flex-direction-column justify-space-between align-items-center">
   <div>
     <ul class="brand mb-2 pb-2">
       <li>
@@ -10,42 +10,65 @@
   
     <ul class="menu">
       <li>
-        <a [routerLink]="['/reservations']">
+        <a [routerLink]="['/home']" class="flex flex-direction-column">
           <img
+            class="pb-05"
+            src="/assets/images/icons/home.png"
+            alt="Ícone para home" />
+            <p>Início</p>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/reservations']" class="flex flex-direction-column">
+          <img
+            class="pb-05"
             src="/assets/images/icons/calendar-filled.png"
             alt="Ícone para reservas" />
+            <p>Reservas</p>
         </a>
       </li>
       <li>
-        <a [routerLink]="['/rooms']">
+        <a [routerLink]="['/rooms']" class="flex flex-direction-column">
           <img
+            class="pb-05"
             src="/assets/images/icons/room.png"
             alt="Ícone para salas" />
+            <p>Salas</p>
+
         </a>
       </li>
       <li>
-        <a [routerLink]="['/users']">
+        <a [routerLink]="['/users']" class="flex flex-direction-column">
           <img
+            class="pb-05"
             src="/assets/images/icons/users.png"
             alt="Ícone para usuários" />
+            <p>Usuários</p>
+
         </a>
       </li>
-      <li>
-        <a [routerLink]="['/']">
+      <!-- <li>
+        <a [routerLink]="['/']" class="flex flex-direction-column">
           <img
+            class="pb-05"
             src="/assets/images/icons/settings-cog.png"
             alt="Ícone para configurações" />
+            <p>Configurações</p>
+
         </a>
-      </li>
+      </li> -->
     </ul>
   </div>
 
   <ul class="menu -border-top mt-2 pt-2">
     <li>
-      <a [routerLink]="['/auth', 'sign-out']">
+      <a [routerLink]="['/auth', 'sign-out']" class="flex flex-direction-column">
         <img
+          class="pb-05"
           src="/assets/images/icons/logout.png"
           alt="Ícone para configurações" />
+            <p>Sair</p>
+
       </a>
     </li>
   </ul>
