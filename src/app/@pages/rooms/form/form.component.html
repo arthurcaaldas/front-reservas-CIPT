@@ -8,6 +8,14 @@
         <h2 class="mb-05">Formulário para salas</h2>
         <p>Preencha corretamente o formulário com campos válidos</p>
       </div>
+      <div class="flex align-items-center relative-close">
+        <button
+          type="button"
+          class="close absolute-close"
+          [mat-dialog-close]="true">
+          X
+        </button>
+      </div>
     </div>
   </div>
 
@@ -16,14 +24,14 @@
     [formGroup]="form"
     (submit)="handleSubmit()">
     <div class="form-group">
-      <label class="label" for="name">Nome da sala<span>*</span></label>
+      <label class="label" for="name">Andar da sala<span>*</span></label>
       <input
         type="text"
         formControlName="name"
         placeholder="Ex. Sala 101"
         required />
     </div>
-    <div class="form-group pt-15">
+    <div class="form-group pt-1">
       <label class="label" for="doc">Número da sala<span>*</span></label>
       <input
         type="text"
@@ -43,20 +51,6 @@
           alt="check"
           width="20px" />
         {{ isEditing ? 'Atualizar' : 'Cadastrar' }} sala
-      </button>
-    </div>
-
-    <div class="flex align-items-center">
-      <button
-        type="button"
-        class="button -primary -block mt-1"
-        [mat-dialog-close]="true">
-        <img
-          class="cancel"
-          src="/assets/images/icons/cancel.png"
-          alt="check"
-          width="20px" />
-        Cancelar
       </button>
     </div>
   </form>

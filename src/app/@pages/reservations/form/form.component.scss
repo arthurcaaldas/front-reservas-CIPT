@@ -17,19 +17,23 @@ section {
     font-weight: 500;
     font-size: .9rem;
   }
-
+  
+  .people {
+    width: 100%;
+  }
+  
   span {
     font-size: var(--size-14);
     font-weight: 400;
   }
-
-  .numbers {
-    position: absolute;
-    top: 5px;
-  }
-
-  .relative {
+  
+  .relative-close {
     position: relative;
-    padding: 5px;
+  }
+  
+  .absolute-close {
+    position: absolute;
+    bottom: 20px;
+    left: 55px;
   }
 }

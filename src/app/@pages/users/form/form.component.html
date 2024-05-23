@@ -8,6 +8,14 @@
         <h2 class="mb-05">Formulário para usuários</h2>
         <p>Preencha corretamente o formulário com campos válidos</p>
       </div>
+      <div class="relative-close">
+        <button
+          type="button"
+          class="close absolute-close"
+          [mat-dialog-close]="true">
+          X
+        </button>
+      </div>
     </div>
   </div>
 
@@ -24,7 +32,7 @@
         required />
     </div>
   
-    <div class="form-group pt-15">
+    <div class="form-group pt-1">
       <label for="telefone">Celular<span>*</span></label>
       <input
         type="text"
@@ -34,7 +42,7 @@
         required />
     </div>
   
-    <div class="form-group pt-15">
+    <div class="form-group pt-1">
       <label for="email">Email<span>*</span></label>
       <input
         type="email"
@@ -43,7 +51,7 @@
         required />
     </div>
   
-    <div class="form-group pt-15">
+    <div class="form-group pt-1">
       <label for="password">Senha<span>*</span></label>
       <input
         type="password"
@@ -54,7 +62,7 @@
         required />
     </div>
   
-    <div class="form-group pt-15">
+    <div class="form-group pt-1">
       <label for="name">Token de cadastro<span>*</span></label>
       <input
         type="text"
@@ -74,20 +82,6 @@
           alt="check"
           width="20px" />
         {{ isEditing ? 'Atualizar' : 'Cadastrar' }} usuário
-      </button>
-    </div>
-
-    <div class="flex align-items-center">
-      <button
-        type="button"
-        class="button -primary -block mt-1"
-        [mat-dialog-close]="true">
-        <img
-          class="cancel"
-          src="/assets/images/icons/cancel.png"
-          alt="check"
-          width="20px" />
-        Cancelar
       </button>
     </div>
   </form>

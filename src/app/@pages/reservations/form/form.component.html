@@ -7,24 +7,23 @@
       </div>
       <div>
         <h2 class="mb-05">Formulário para reservas</h2>
-        <p>Preencha corretamente o formulário com campos válidos</p>
+        <p>Preencha corretamente com os dados do titular</p>
+      </div>
+      <div class="flex align-items-center relative-close">
+        <button
+          type="button"
+          class="close m-1 absolute-close"
+          [mat-dialog-close]="true">
+          X
+        </button>
       </div>
     </div>
   </div>
   <form class="p-2" [formGroup]="form" (submit)="handleSubmit()">
     <div class="form-group">
-      <label class="label" for="name">Nome completo do responsável<span>*</span></label>
+      <label class="label" for="doc">CPF<span>*</span></label>
       <input
-        class="input mb-2"
-        type="text"
-        formControlName="fullName"
-        placeholder="Ex. João da Silva"
-        required />
-    </div>
-    <div class="form-group">
-      <label class="label" for="doc">Documentodo responsável<span>*</span></label>
-      <input
-        class="input mb-2"
+        class="input mb-1"
         type="text"
         formControlName="document"
         mask="000.000.000-00"
@@ -32,8 +31,17 @@
         required />
     </div>
     <div class="form-group">
+      <label class="label" for="name">Nome completo<span>*</span></label>
+      <input
+        class="input mb-1"
+        type="text"
+        formControlName="fullName"
+        placeholder="Ex. João da Silva"
+        required />
+    </div>
+    <div class="form-group">
       <label class="label" for="room">Salas disponíveis para reserva<span>*</span></label>
-      <select class="select mb-2" formControlName="roomId" required>
+      <select class="select mb-1" formControlName="roomId" required>
         <option value="">Selecione uma sala</option>
         <option
         *ngFor="let room of rooms"
@@ -43,23 +51,15 @@
     </select>
   </div>
 
-  <div class="flex">
-    <div class="mr-05 flex justify-space-evenly">
-      <div class="flex flex-direction-column">
+  <div class="form-group">
+    <div class="flex">
+      <div class="flex flex-direction-column people">
         <label class="label" for="amount">Quantidade de pessoas<span>*</span></label>
-        <div class="numbers relative flex justify-space-between">
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span>7</span>
-        <span>8</span>
-      </div>
-      <input class="input" formControlName="amountOfPeople" type="range" min="3" max="8" step="1">
+      <input class="input" formControlName="amountOfPeople" type="number" min="3" max="8" step="1">
     </div>
   </div>
 
-  <div class="flex">
+  <!-- <div class="flex">
     <mat-form-field class="px-2">
     <input
       matInput
@@ -86,8 +86,8 @@
       [for]="$any(endDate)">
     </mat-datepicker-toggle>
     <ngx-mat-datetime-picker #endDate></ngx-mat-datetime-picker>
-  </mat-form-field>
-</div>
+  </mat-form-field> -->
+<!-- </div> -->
 </div>
 
 <div>
@@ -103,8 +103,8 @@
     {{ isEditing ? 'Atualizar' : 'Reservar' }} sala
   </button>
 </div>
-    
-<div class="flex align-items-center">
+
+<!-- <div class="flex align-items-center">
   <button
     type="button"
     class="justify-center button -primary -block mt-1"
@@ -115,7 +115,7 @@
       width="20px" />
     Cancelar
   </button>
-</div>
+</div> -->
 </div>
 </form>
 </section>

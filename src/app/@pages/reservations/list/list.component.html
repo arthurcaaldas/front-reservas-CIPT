@@ -34,32 +34,32 @@
       <table mat-table [dataSource]="dataSource" matSort>
     
         <ng-container matColumnDef="roomName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Número da sala</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Salas</th>
           <td mat-cell *matCellDef="let row"> {{row.roomName}} </td>
         </ng-container>
     
         <ng-container matColumnDef="fullName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Responsável pela sala</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Responsável</th>
           <td mat-cell *matCellDef="let row"> {{row.fullName}} </td>
         </ng-container>
     
         <ng-container matColumnDef="document">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Documento responsável</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Documento</th>
           <td mat-cell *matCellDef="let row"> {{row.document | mask: '000.000.000-00'}} </td>
         </ng-container>
     
         <ng-container matColumnDef="amountOfPeople">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantidade de Pessoas</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ocupantes</th>
           <td mat-cell *matCellDef="let row"> {{row.amountOfPeople}} pessoas</td>
         </ng-container>
 
         <ng-container matColumnDef="reservationStartDate">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Horário da reserva</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Entrada</th>
           <td mat-cell *matCellDef="let row"> {{row.reservationStartDate | date : 'dd/MM/yyyy HH:mm'}} </td>
         </ng-container>
 
         <ng-container matColumnDef="reservationEndDate">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Horário da saída</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Saída</th>
           <td mat-cell *matCellDef="let row"> {{row.reservationEndDate | date : 'dd/MM/yyyy HH:mm'}} </td>
         </ng-container>
 
@@ -71,7 +71,7 @@
             </button>
             
             <button class="remove mx-05" (click)="handleDelete(row._id)">
-              Remover
+              Excluir
             </button>
           </td>
         </ng-container>
