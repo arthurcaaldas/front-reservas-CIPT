@@ -29,7 +29,7 @@ export class SignUpComponent {
     this._api.createUser(this.form.value)
       .subscribe({
         next: () => this._router.navigate(['/auth', 'sign-in']),
-        error: (error) => console.error(error),
+        error: ({error}) => alert(error.message),
       })
   }
 }

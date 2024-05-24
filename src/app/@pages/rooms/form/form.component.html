@@ -8,14 +8,12 @@
         <h2 class="mb-05">Formulário para salas</h2>
         <p>Preencha corretamente o formulário com campos válidos</p>
       </div>
-      <div class="flex align-items-center relative-close">
-        <button
-          type="button"
-          class="close absolute-close"
-          [mat-dialog-close]="true">
-          X
-        </button>
-      </div>
+      <button
+        type="button"
+        class="close absolute-close"
+        [mat-dialog-close]="true">
+        X
+      </button>
     </div>
   </div>
 
@@ -24,7 +22,7 @@
     [formGroup]="form"
     (submit)="handleSubmit()">
     <div class="form-group">
-      <label class="label" for="name">Andar da sala<span>*</span></label>
+      <label class="label" for="name">Nome da sala<span>*</span></label>
       <input
         type="text"
         formControlName="name"

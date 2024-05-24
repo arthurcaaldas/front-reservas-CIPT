@@ -21,6 +21,7 @@ export class ReservationsFormComponent {
     private _api: ApiService,
     private dialogRef: MatDialogRef<ReservationsFormComponent>,
     @Inject(MAT_DIALOG_DATA) public reservation: any) {
+      console.log(this._api.currentUserId)
     this.form = this._fb.group({
       userId: [this._api.currentUserId, [Validators.required]],
       fullName: [null, [Validators.required]],

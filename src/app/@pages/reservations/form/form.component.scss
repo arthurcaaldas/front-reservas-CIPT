@@ -19,7 +19,7 @@ section {
   }
   
   .people {
-    width: 100%;
+    width: 150px;
   }
   
   span {
@@ -33,7 +33,7 @@ section {
   
   .absolute-close {
     position: absolute;
-    bottom: 20px;
-    left: 55px;
+    top: 0;
+    right: 0;
   }
 }

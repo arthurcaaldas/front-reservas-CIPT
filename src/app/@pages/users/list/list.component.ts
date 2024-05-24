@@ -59,7 +59,7 @@ export class UsersListComponent {
       return;
     };
 
-    this._api.deleteUser(id)
+    this._api.deleteUser(id, token)
       .subscribe({
         next: () => this.handleUsers(),
         error: (error) => console.error(error),

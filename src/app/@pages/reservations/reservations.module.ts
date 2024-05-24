@@ -18,6 +18,7 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
 
 import { ReservationsListComponent } from '@pages/reservations/list/list.component';
 import { ReservationsFormComponent } from '@pages/reservations/form/form.component';
+import { PipesModule } from '@shared/pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ReservationsFormComponent } from '@pages/reservations/form/form.compone
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    DatePipe
+    DatePipe,
+    PipesModule
   ],
   exports: [],
   providers: [

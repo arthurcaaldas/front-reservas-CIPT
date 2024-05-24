@@ -54,8 +54,8 @@ export class ApiService {
       return this._http.put(`${this._api}/users/${id}`, update);
     }
     
-    public deleteUser(id: string): Observable<any> {
-      return this._http.delete(`${this._api}/users/${id}`);
+    public deleteUser(id: string, tokenPass: any): Observable<any> {
+      return this._http.delete(`${this._api}/users/${id}`, {body: {tokenPass}});
     }
     
     /**
