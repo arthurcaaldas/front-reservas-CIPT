@@ -26,10 +26,13 @@
         </div>
       </header>
 
-      <mat-form-field>
-        <mat-label>Filtro</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex.: João da Silva" #input>
-      </mat-form-field>
+        <mat-form-field>
+          <mat-label>
+            <img src="/assets/images/icons/funil.png" width="20px" alt="Imagem de filtro">
+            Filtro
+          </mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ex.: João da Silva" #input>
+        </mat-form-field>
       
       <table mat-table [dataSource]="dataSource" matSort>
     
@@ -66,12 +69,16 @@
         <ng-container matColumnDef="_id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
           <td mat-cell *matCellDef="let row">
-            <button class="edit" (click)="openDialog(row)">
+            <!-- <button class="edit" (click)="openDialog(row)">
               Editar
+            </button> -->
+
+            <button class="completed">
+              Concluir
             </button>
             
             <button class="remove mx-05" (click)="handleDelete(row._id)">
-              Excluir
+              Cancelar
             </button>
           </td>
         </ng-container>
