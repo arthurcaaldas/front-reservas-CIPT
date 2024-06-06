@@ -1,0 +1,62 @@
+<section>
+  <div class="grid justify-center">
+    <div class="div col-md-12">
+      <header class="mb-3 ">
+        <div class="flex align-items-center justify-space-between">
+          <div class="flex">
+            <div class="mr-05">
+              <img src="/assets/images/icons/date.png" alt="">
+            </div>
+            <div>
+              <h1 class="mb-05">Salas disponíveis</h1>
+              <p>Veja a disponibilidade para agendamento de salas no CIPT</p>
+            </div>
+          </div>
+          <div class="flex align-items-center">
+            <button
+              (click)="openDialog()"
+              class="button -secondary -block">
+              <img
+                src="/assets/images/icons/date+.png"
+                alt="Ícone de Calendário" />
+              Reservar sala
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="card flex justify-center align-items-center">
+        <div class="m-1">
+          <button class=" flex flex-direction-column align-items-center justify-center">
+            <img class="pb-1" src="/assets/images/icons/people.png" alt="Icon pessoas">
+            <p>Pessoa Física</p>
+          </button>
+        </div>
+
+        <div class="m-1">
+          <button class="flex flex-direction-column align-items-center justify-center">
+            <img class="pb-1" src="/assets/images/icons/building.png" alt="Icons empresas">
+            <p>Empresa</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- <div>
+    <div class="flex align-items-center justify-center">
+      <button
+        type="submit"
+        class=" button -secondary -block mt-1"
+      [disabled]="form.invalid">
+      <img
+        src="/assets/images/icons/check.png"
+        alt="check"
+        width="20px" />
+      {{ isEditing ? 'Atualizar' : 'Reservar' }} sala
+      </button>
+    </div>
+  </div> -->
+</section>
