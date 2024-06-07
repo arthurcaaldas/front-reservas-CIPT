@@ -40,7 +40,7 @@ export class ReservationsListComponent {
 
   public openDialog(reservation?: any): void {
     const dialogRef = this.dialog.open(ReservationsFormComponent, {
-      minWidth: "500px",
+      minWidth: "800px",
       data: reservation
     });
     

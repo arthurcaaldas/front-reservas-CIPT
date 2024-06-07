@@ -14,18 +14,20 @@ section {
     margin-right: .2rem;
   }
   
+  h2 {
+    font-size: var(--size-24);
+    color: var(--color-purple);
+  }
+  
   .card {
-    height: 100%;
     
     button {
-      width: 250px;
-      height: 250px;
       background-color: var(--color-purple);
-      border-radius: 2rem;
+      border-radius: 1rem;
       border: none;
       cursor: pointer;
     }
-
+    
     p {
       color: var(--color-white);
       font-size: var(--size-18);
